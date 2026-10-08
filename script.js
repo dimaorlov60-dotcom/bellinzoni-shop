@@ -1,8 +1,11 @@
 let currentProductIndex = 0;
-const products = document.querySelectorAll('.product');
-const dots = document.querySelectorAll('.dot');
 
 function showProduct(index) {
+  const products = document.querySelectorAll('.product');
+  const dots = document.querySelectorAll('.dot');
+
+  if (!products.length) return;
+
   if (index < 0) index = products.length - 1;
   if (index >= products.length) index = 0;
 
@@ -28,16 +31,21 @@ function previousProduct() {
 function setLanguage(lang) {
   const isIt = lang === 'it';
 
-  document.getElementById('itButton').classList.toggle('active', isIt);
-  document.getElementById('enButton').classList.toggle('active', !isIt);
+  const itBtn = document.getElementById('itButton');
+  const enBtn = document.getElementById('enButton');
+
+  if (itBtn) itBtn.classList.toggle('active', isIt);
+  if (enBtn) enBtn.classList.toggle('active', !isIt);
 
   document.querySelectorAll('[data-it]').forEach((el) => {
     const text = isIt ? el.getAttribute('data-it') : el.getAttribute('data-en');
-    el.innerHTML = text;
+    if (text) {
+      el.innerHTML = text;
+    }
   });
 }
 
-// Автоперемикання товарів кожні 5 секунд
+// Автоматична зміна товарів кожні 5 секунд
 setInterval(() => {
   nextProduct();
 }, 5000);
