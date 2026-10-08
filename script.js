@@ -1,225 +1,84 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. LANGUAGE SWITCHER
+  let currentLang = "IT";
 
-/* =========================
-   PRODUCT CAROUSEL
-========================= */
+  const btnIt = document.getElementById("btn-it");
+  const btnEn = document.getElementById("btn-en");
+  const waBtn1 = document.getElementById("wa-btn-1");
+  const waBtn2 = document.getElementById("wa-btn-2");
 
-let currentProduct = 0;
+  const phone = "393516351937";
 
+  function updateWhatsAppLinks() {
+    if (currentLang === "IT") {
+      waBtn1.href = `https://wa.me/${phone}?text=` + encodeURIComponent("Buongiorno, sono interessato al prodotto Bellinzoni B.GTX Pulitore Fughe.");
+      waBtn2.href = `https://wa.me/${phone}?text=` + encodeURIComponent("Buongiorno, sono interessato al prodotto Bellinzoni B-DESCALIX 100 Detergente Acido.");
+    } else {
+      waBtn1.href = `https://wa.me/${phone}?text=` + encodeURIComponent("Hello, I am interested in the Bellinzoni B.GTX Grout Cleaner.");
+      waBtn2.href = `https://wa.me/${phone}?text=` + encodeURIComponent("Hello, I am interested in the Bellinzoni B-DESCALIX 100 Acid Cleaner.");
+    }
+  }
 
-const products =
-    document.querySelectorAll(".product");
-
-
-const dots =
-    document.querySelectorAll(".dot");
-
-
-function showProduct(index) {
-
-    if (index < 0) {
-
-        index =
-            products.length - 1;
-
+  function setLanguage(lang) {
+    currentLang = lang;
+    
+    if (lang === "IT") {
+      btnIt.classList.add("active");
+      btnEn.classList.remove("active");
+    } else {
+      btnEn.classList.add("active");
+      btnIt.classList.remove("active");
     }
 
-
-    if (index >= products.length) {
-
-        index = 0;
-
-    }
-
-
-    currentProduct = index;
-
-
-    products.forEach(
-        (product, i) => {
-
-            product.classList.toggle(
-                "active",
-                i === currentProduct
-            );
-
-        }
-    );
-
-
-    dots.forEach(
-        (dot, i) => {
-
-            dot.classList.toggle(
-                "active",
-                i === currentProduct
-            );
-
-        }
-    );
-
-}
-
-
-function nextProduct() {
-
-    showProduct(
-        currentProduct + 1
-    );
-
-}
-
-
-function previousProduct() {
-
-    showProduct(
-        currentProduct - 1
-    );
-
-}
-
-
-
-/* =========================
-   LANGUAGE
-========================= */
-
-let currentLanguage = "it";
-
-
-function setLanguage(language) {
-
-    currentLanguage = language;
-
-
-    const elements =
-        document.querySelectorAll(
-            "[data-it]"
-        );
-
-
-    elements.forEach(
-        element => {
-
-            const text =
-                element.getAttribute(
-                    `data-${language}`
-                );
-
-
-            if (text) {
-
-                element.textContent = text;
-
-            }
-
-        }
-    );
-
-
-    const itButton =
-        document.getElementById(
-            "itButton"
-        );
-
-
-    const enButton =
-        document.getElementById(
-            "enButton"
-        );
-
-
-    itButton.classList.toggle(
-        "active",
-        language === "it"
-    );
-
-
-    enButton.classList.toggle(
-        "active",
-        language === "en"
-    );
-
-
-    document.documentElement.lang =
-        language;
-
-}
-
-
-
-/* =========================
-   MOBILE SWIPE
-========================= */
-
-let touchStartX = 0;
-
-let touchEndX = 0;
-
-
-const carousel =
-    document.querySelector(
-        ".product-container"
-    );
-
-
-carousel.addEventListener(
-    "touchstart",
-    function(event) {
-
-        touchStartX =
-            event.changedTouches[0]
-                .screenX;
-
-    }
-);
-
-
-carousel.addEventListener(
-    "touchend",
-    function(event) {
-
-        touchEndX =
-            event.changedTouches[0]
-                .screenX;
-
-        handleSwipe();
-
-    }
-);
-
-
-function handleSwipe() {
-
-    const difference =
-        touchStartX - touchEndX;
-
-
-    if (difference > 50) {
-
-        nextProduct();
-
-    }
-
-
-    if (difference < -50) {
-
-        previousProduct();
-
-    }
-
-}
-
-
-
-/* =========================
-   AUTO CAROUSEL
-========================= */
-
-setInterval(
-    function() {
-
-        nextProduct();
-
-    },
-    7000
-);
+    document.querySelectorAll("[data-it]").forEach((el) => {
+      const text = lang === "IT" ? el.getAttribute("data-it") : el.getAttribute("data-en");
+      if (el.tagName === "UL") {
+        el.innerHTML = text;
+      } else {
+        el.innerHTML = text;
+      }
+    });
+
+    updateWhatsAppLinks();
+  }
+
+  btnIt.addEventListener("click", () => setLanguage("IT"));
+  btnEn.addEventListener("click", () => setLanguage("EN"));
+
+  updateWhatsAppLinks();
+
+  // 2. CAROUSEL
+  const track = document.getElementById("carouselTrack");
+  const slides = Array.from(track.children);
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dotsContainer = document.getElementById("carouselDots");
+  const dots = Array.from(dotsContainer.children);
+
+  let currentIndex = 0;
+
+  function moveToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+
+    currentIndex = index;
+  }
+
+  nextBtn.addEventListener("click", () => moveToSlide(currentIndex + 1));
+  prevBtn.addEventListener("click", () => moveToSlide(currentIndex - 1));
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => moveToSlide(index));
+  });
+
+  // Auto slide every 5 seconds
+  setInterval(() => {
+    moveToSlide(currentIndex + 1);
+  }, 5000);
+});
