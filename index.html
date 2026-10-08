@@ -1,707 +1,197 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Bellinzoni Professional Cleaning Solutions">
-
-    <title>Bellinzoni | Professional Cleaning</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bellinzoni — Professional Cleaning</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
 
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo-area">
+        <span class="brand-name">BELLINZONI</span>
+        <span class="brand-sub">PROFESSIONAL CLEANING</span>
+      </div>
+      
+      <nav class="nav">
+        <a href="#products" data-it="Prodotti" data-en="Products">Prodotti</a>
+        <a href="#about" data-it="Chi siamo" data-en="About us">Chi siamo</a>
+        <a href="#contact" data-it="Contatti" data-en="Contact">Contatti</a>
+      </nav>
 
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-
-    <a href="#" class="logo">
-        BELLINZONI
-        <span>PROFESSIONAL CLEANING</span>
-    </a>
-
-
-    <nav class="navigation">
-
-        <a href="#prodotti" data-it="Prodotti" data-en="Products">
-            Prodotti
-        </a>
-
-        <a href="#azienda" data-it="Chi siamo" data-en="About us">
-            Chi siamo
-        </a>
-
-        <a href="#contatti" data-it="Contatti" data-en="Contact">
-            Contatti
-        </a>
-
-    </nav>
-
-
-    <div class="language-switch">
-
-        <button id="itButton"
-                class="language active"
-                onclick="setLanguage('it')">
-            IT
-        </button>
-
-        <span>|</span>
-
-        <button id="enButton"
-                class="language"
-                onclick="setLanguage('en')">
-            EN
-        </button>
-
+      <div class="lang-switch">
+        <button id="btn-it" class="lang-btn active">IT</button>
+        <span class="divider">|</span>
+        <button id="btn-en" class="lang-btn">EN</button>
+      </div>
     </div>
+  </header>
 
-</header>
-
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <span class="small-title"
-              data-it="SOLUZIONI PROFESSIONALI"
-              data-en="PROFESSIONAL SOLUTIONS">
-
-            SOLUZIONI PROFESSIONALI
-
-        </span>
-
-
-        <h1
-            data-it="Pulizia professionale per superfici perfette."
-            data-en="Professional cleaning for perfectly clean surfaces.">
-
-            Pulizia professionale
-            per superfici perfette.
-
-        </h1>
-
-
-        <p
-            data-it="Prodotti professionali Bellinzoni per la pulizia e la manutenzione di fughe, gres, ceramica, granito e cotto."
-            data-en="Professional Bellinzoni products for cleaning and maintaining grout, porcelain stoneware, ceramic, granite and terracotta.">
-
-            Prodotti professionali Bellinzoni
-            per la pulizia e la manutenzione
-            di fughe, gres, ceramica,
-            granito e cotto.
-
-        </p>
-
-
-        <a href="#prodotti"
-           class="main-button"
-           data-it="Scopri i prodotti"
-           data-en="Discover our products">
-
-            Scopri i prodotti
-
-        </a>
-
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1 data-it="Pulizia professionale per superfici perfette." data-en="Professional cleaning for perfectly clean surfaces.">
+        Pulizia professionale per superfici perfette.
+      </h1>
+      <a href="#products" class="btn btn-primary" data-it="Scopri i prodotti" data-en="Discover our products">
+        Scopri i prodotti
+      </a>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- ================= PRODUCTS ================= -->
-
-<section id="prodotti"
-         class="products-section">
-
-
-    <div class="section-title">
-
-        <span
-            data-it="LA NOSTRA SELEZIONE"
-            data-en="OUR SELECTION">
-
-            LA NOSTRA SELEZIONE
-
-        </span>
-
-
-        <h2
-            data-it="Prodotti professionali"
-            data-en="Professional products">
-
-            Prodotti professionali
-
-        </h2>
-
-
-        <p
-            data-it="Soluzioni professionali per la pulizia delle superfici."
-            data-en="Professional solutions for surface cleaning.">
-
-            Soluzioni professionali
-            per la pulizia delle superfici.
-
-        </p>
-
-    </div>
-
-
-
-    <!-- ================= CAROUSEL ================= -->
-
-    <div class="carousel">
-
-
-        <button class="carousel-button prev"
-                onclick="previousProduct()">
-
-            ‹
-
-        </button>
-
-
-        <div class="product-container">
-
-
-            <!-- ================= PRODUCT 1 ================= -->
-
-            <article class="product active">
-
-
+  <!-- PRODUCTS CAROUSEL SECTION -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <h2 class="section-title" data-it="I Nostri Prodotti" data-en="Our Products">I Nostri Prodotti</h2>
+      
+      <div class="carousel-container">
+        <button class="carousel-arrow prev" id="prevBtn">&#10094;</button>
+        
+        <div class="carousel-track-container">
+          <ul class="carousel-track" id="carouselTrack">
+            
+            <!-- PRODUCT 1 -->
+            <li class="carousel-slide active">
+              <div class="product-card">
                 <div class="product-image">
-
-                    <img src="images/pulitore-fughe.jpg"
-                         alt="Bellinzoni B.GTX Pulitore Fughe">
-
+                  <img src="images/pulitore-fughe.jpg" alt="Bellinzoni B.GTX Pulitore Fughe">
                 </div>
-
-
-
                 <div class="product-info">
-
-
-                    <span class="product-number">
-                        01 / 02
-                    </span>
-
-
-                    <h3>
-                        B.GTX
-                    </h3>
-
-
-                    <h4
-                        data-it="Pulitore Fughe"
-                        data-en="Grout Cleaner">
-
-                        Pulitore Fughe
-
-                    </h4>
-
-
-                    <p
-                        data-it="Pulitore concentrato ad azione rapida per la pulizia e lo sgrassaggio delle fughe."
-                        data-en="Fast-acting concentrated cleaner for cleaning and degreasing grout joints.">
-
-                        Pulitore concentrato ad
-                        azione rapida per la pulizia
-                        e lo sgrassaggio delle fughe.
-
-                    </p>
-
-
-
-                    <ul>
-
-                        <li
-                            data-it="✓ Azione rapida"
-                            data-en="✓ Fast action">
-
-                            ✓ Azione rapida
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Per tutti i tipi di fuga"
-                            data-en="✓ For all types of grout">
-
-                            ✓ Per tutti i tipi di fuga
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Senza acidi"
-                            data-en="✓ Acid-free">
-
-                            ✓ Senza acidi
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Non altera i colori"
-                            data-en="✓ Does not alter colours">
-
-                            ✓ Non altera i colori
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Facile risciacquo"
-                            data-en="✓ Easy rinsing">
-
-                            ✓ Facile risciacquo
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Made in Italy"
-                            data-en="✓ Made in Italy">
-
-                            ✓ Made in Italy
-
-                        </li>
-
-                    </ul>
-
-
-
-                    <div class="product-bottom">
-
-
-                        <div class="price">
-                            €30
-                        </div>
-
-
-                        <a
-                            class="order-button"
-                            href="https://wa.me/393516351937?text=Buongiorno,%20sono%20interessato%20al%20prodotto%20Bellinzoni%20B.GTX%20Pulitore%20Fughe."
-
-                            target="_blank"
-
-                            data-it="Richiedi informazioni"
-                            data-en="Request information">
-
-                            Richiedi informazioni
-
-                        </a>
-
-                    </div>
-
-
+                  <h3 class="product-title" data-it="Bellinzoni B.GTX<br><small>Pulitore Fughe</small>" data-en="Bellinzoni B.GTX<br><small>Grout Cleaner</small>">
+                    Bellinzoni B.GTX<br><small>Pulitore Fughe</small>
+                  </h3>
+                  <p class="product-desc" data-it="Pulitore concentrato ad azione rapida per la pulizia e lo sgrassaggio delle fughe." data-en="Fast-acting concentrated cleaner for cleaning and degreasing grout joints.">
+                    Pulitore concentrato ad azione rapida per la pulizia e lo sgrassaggio delle fughe.
+                  </p>
+                  <ul class="product-features" data-it="
+                    <li>Azione rapida</li>
+                    <li>Per tutti i tipi di fuga</li>
+                    <li>Senza acidi</li>
+                    <li>Non altera i colori</li>
+                    <li>Facile risciacquo</li>
+                    <li>Made in Italy</li>
+                  " data-en="
+                    <li>Fast action</li>
+                    <li>For all types of grout</li>
+                    <li>Acid-free</li>
+                    <li>Does not alter colours</li>
+                    <li>Easy rinsing</li>
+                    <li>Made in Italy</li>
+                  ">
+                    <li>Azione rapida</li>
+                    <li>Per tutti i tipi di fuga</li>
+                    <li>Senza acidi</li>
+                    <li>Non altera i colori</li>
+                    <li>Facile risciacquo</li>
+                    <li>Made in Italy</li>
+                  </ul>
+                  <div class="product-bottom">
+                    <span class="product-price">€30</span>
+                    <a href="#" id="wa-btn-1" class="btn btn-whatsapp" target="_blank">
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
+              </div>
+            </li>
 
-            </article>
-
-
-
-            <!-- ================= PRODUCT 2 ================= -->
-
-            <article class="product">
-
-
+            <!-- PRODUCT 2 -->
+            <li class="carousel-slide">
+              <div class="product-card">
                 <div class="product-image">
-
-                    <img src="images/descalix-100.jpg"
-                         alt="Bellinzoni B-Descalix 100">
-
+                  <img src="images/descalix-100.jpg" alt="Bellinzoni B-DESCALIX 100">
                 </div>
-
-
-
                 <div class="product-info">
-
-
-                    <span class="product-number">
-                        02 / 02
-                    </span>
-
-
-                    <h3>
-                        B-DESCALIX 100
-                    </h3>
-
-
-                    <h4
-                        data-it="Detergente Acido"
-                        data-en="Acid Cleaner">
-
-                        Detergente Acido
-
-                    </h4>
-
-
-                    <p
-                        data-it="Detergente concentrato a base acida per la pulizia post-cantiere e post-posa."
-                        data-en="Concentrated acid-based cleaner for post-construction and post-installation cleaning.">
-
-                        Detergente concentrato a base
-                        acida per la pulizia post-cantiere
-                        e post-posa.
-
-                    </p>
-
-
-
-                    <ul>
-
-                        <li
-                            data-it="✓ Pulizia post-cantiere"
-                            data-en="✓ Post-construction cleaning">
-
-                            ✓ Pulizia post-cantiere
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Gres porcellanato"
-                            data-en="✓ Porcelain stoneware">
-
-                            ✓ Gres porcellanato
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Ceramica e klinker"
-                            data-en="✓ Ceramic and klinker">
-
-                            ✓ Ceramica e klinker
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Granito e cotto"
-                            data-en="✓ Granite and terracotta">
-
-                            ✓ Granito e cotto
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Elimina le incrostazioni"
-                            data-en="✓ Removes deposits">
-
-                            ✓ Elimina le incrostazioni
-
-                        </li>
-
-
-                        <li
-                            data-it="✓ Elimina il salnitro"
-                            data-en="✓ Removes salt deposits">
-
-                            ✓ Elimina il salnitro
-
-                        </li>
-
-                    </ul>
-
-
-
-                    <div class="product-bottom">
-
-
-                        <div class="price">
-                            €30
-                        </div>
-
-
-                        <a
-                            class="order-button"
-                            href="https://wa.me/393516351937?text=Buongiorno,%20sono%20interessato%20al%20prodotto%20Bellinzoni%20B-Descalix%20100."
-
-                            target="_blank"
-
-                            data-it="Richiedi informazioni"
-                            data-en="Request information">
-
-                            Richiedi informazioni
-
-                        </a>
-
-                    </div>
-
-
+                  <h3 class="product-title" data-it="Bellinzoni B-DESCALIX 100<br><small>Detergente Acido</small>" data-en="Bellinzoni B-DESCALIX 100<br><small>Acid Cleaner</small>">
+                    Bellinzoni B-DESCALIX 100<br><small>Detergente Acido</small>
+                  </h3>
+                  <p class="product-desc" data-it="Detergente concentrato a base acida per la pulizia post-cantiere e post-posa." data-en="Concentrated acid-based cleaner for post-construction and post-installation cleaning.">
+                    Detergente concentrato a base acida per la pulizia post-cantiere e post-posa.
+                  </p>
+                  <ul class="product-features" data-it="
+                    <li>Pulizia post-cantiere</li>
+                    <li>Gres porcellanato</li>
+                    <li>Ceramica e klinker</li>
+                    <li>Granito e cotto</li>
+                    <li>Elimina le incrostazioni</li>
+                    <li>Elimina il salnitro</li>
+                  " data-en="
+                    <li>Post-construction cleaning</li>
+                    <li>Porcelain stoneware</li>
+                    <li>Ceramic and klinker</li>
+                    <li>Granite and terracotta</li>
+                    <li>Removes deposits</li>
+                    <li>Removes salt deposits</li>
+                  ">
+                    <li>Pulizia post-cantiere</li>
+                    <li>Gres porcellanato</li>
+                    <li>Ceramica e klinker</li>
+                    <li>Granito e cotto</li>
+                    <li>Elimina le incrostazioni</li>
+                    <li>Elimina il salnitro</li>
+                  </ul>
+                  <div class="product-bottom">
+                    <span class="product-price">€30</span>
+                    <a href="#" id="wa-btn-2" class="btn btn-whatsapp" target="_blank">
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
+              </div>
+            </li>
 
-            </article>
-
-
+          </ul>
         </div>
 
+        <button class="carousel-arrow next" id="nextBtn">&#10095;</button>
+      </div>
 
-        <button class="carousel-button next"
-                onclick="nextProduct()">
-
-            ›
-
-        </button>
-
+      <div class="carousel-dots" id="carouselDots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
     </div>
+  </section>
 
-
-
-    <!-- DOTS -->
-
-    <div class="carousel-dots">
-
-        <button class="dot active"
-                onclick="showProduct(0)">
-        </button>
-
-        <button class="dot"
-                onclick="showProduct(1)">
-        </button>
-
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title" data-it="Qualità professionale" data-en="Professional Quality">Qualità professionale</h2>
+      <p class="about-text" data-it="Soluzioni pensate per i professionisti." data-en="Solutions designed for professionals.">
+        Soluzioni pensate per i professionisti.
+      </p>
     </div>
+  </section>
 
-
-</section>
-
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="azienda"
-         class="about-section">
-
-
-    <div class="about-content">
-
-
-        <span
-            data-it="QUALITÀ PROFESSIONALE"
-            data-en="PROFESSIONAL QUALITY">
-
-            QUALITÀ PROFESSIONALE
-
-        </span>
-
-
-        <h2
-            data-it="Soluzioni pensate per i professionisti."
-            data-en="Solutions designed for professionals.">
-
-            Soluzioni pensate
-            per i professionisti.
-
-        </h2>
-
-
-        <p
-            data-it="Prodotti professionali Bellinzoni per la pulizia e la manutenzione delle superfici."
-            data-en="Professional Bellinzoni products for surface cleaning and maintenance.">
-
-            Prodotti professionali Bellinzoni
-            per la pulizia e la manutenzione
-            delle superfici.
-
-        </p>
-
-
-        <p
-            data-it="Soluzioni specifiche per fughe, gres porcellanato, ceramica, granito, klinker e cotto."
-            data-en="Specific solutions for grout, porcelain stoneware, ceramic, granite, klinker and terracotta.">
-
-            Soluzioni specifiche per fughe,
-            gres porcellanato, ceramica,
-            granito, klinker e cotto.
-
-        </p>
-
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title" data-it="Contatti" data-en="Contact">Contatti</h2>
+      <div class="contact-grid">
+        <a href="tel:+393516351937" class="contact-card">
+          <strong>Phone:</strong> +39 351 635 1937
+        </a>
+        <a href="mailto:dimaorlov60@gmail.com" class="contact-card">
+          <strong>Email:</strong> dimaorlov60@gmail.com
+        </a>
+        <a href="https://wa.me/393516351937" target="_blank" class="contact-card">
+          <strong>WhatsApp:</strong> +39 351 635 1937
+        </a>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contatti"
-         class="contact-section">
-
-
-    <div class="contact-title">
-
-
-        <span
-            data-it="CONTATTI"
-            data-en="CONTACT">
-
-            CONTATTI
-
-        </span>
-
-
-        <h2
-            data-it="Hai bisogno di informazioni?"
-            data-en="Need more information?">
-
-            Hai bisogno di informazioni?
-
-        </h2>
-
-
-        <p
-            data-it="Contattaci per disponibilità, prezzi e informazioni sui prodotti."
-            data-en="Contact us for availability, prices and product information.">
-
-            Contattaci per disponibilità,
-            prezzi e informazioni sui prodotti.
-
-        </p>
-
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-brand">BELLINZONI — Professional Cleaning Solutions</p>
+      <p class="footer-copy">© 2026 Bellinzoni — Tutti i diritti riservati</p>
     </div>
+  </footer>
 
-
-
-    <div class="contact-grid">
-
-
-        <!-- PHONE -->
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                ☎
-            </div>
-
-
-            <h3
-                data-it="Telefono"
-                data-en="Phone">
-
-                Telefono
-
-            </h3>
-
-
-            <a href="tel:+393516351937">
-                +39 351 635 1937
-            </a>
-
-        </div>
-
-
-
-        <!-- EMAIL -->
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                ✉
-            </div>
-
-
-            <h3>
-                Email
-            </h3>
-
-
-            <a href="mailto:dimaorlov60@gmail.com">
-                dimaorlov60@gmail.com
-            </a>
-
-        </div>
-
-
-
-        <!-- WHATSAPP -->
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                W
-            </div>
-
-
-            <h3>
-                WhatsApp
-            </h3>
-
-
-            <a
-                href="https://wa.me/393516351937"
-                target="_blank"
-                data-it="Scrivici su WhatsApp"
-                data-en="Message us on WhatsApp">
-
-                Scrivici su WhatsApp
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-
-    <div class="footer-logo">
-        BELLINZONI
-    </div>
-
-
-    <p
-        data-it="Professional Cleaning Solutions"
-        data-en="Professional Cleaning Solutions">
-
-        Professional Cleaning Solutions
-
-    </p>
-
-
-    <div class="copyright">
-
-        © 2026 Bellinzoni —
-        <span
-            data-it="Tutti i diritti riservati"
-            data-en="All rights reserved">
-
-            Tutti i diritti riservati
-
-        </span>
-
-    </div>
-
-
-</footer>
-
-
-
-<script src="script.js"></script>
-
-
+  <script src="script.js"></script>
 </body>
-
 </html>
